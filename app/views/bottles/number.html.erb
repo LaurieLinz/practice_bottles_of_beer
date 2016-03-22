@@ -1,0 +1,25 @@
+<h1>
+  <% if @bottles > 0 %>
+    <%= pluralize(@bottles, 'bottle') %> of beer on the wall <p>
+  <%= pluralize(@bottles, 'bottle') %> of beer.
+    <p>
+  <% else %>
+    No more bottles of beer on the wall
+    <p>
+      No more bottles of beer
+    <p>
+  <% end %>
+
+</h1>
+
+<% @bottles.times do %>
+  <%= image_tag('beer shot.png') %>
+<% end %>
+
+<% if @bottles > 0 %>
+  <%= link_to 'Take one down . . . ', take_path(@bottles) %>
+<% else %>
+  <%= image_tag('ohno.png') %>
+
+  <%= link_to 'Go to the store . . . ', store_path %>
+<% end %>
